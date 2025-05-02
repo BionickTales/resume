@@ -4401,7 +4401,7 @@ Location:
 .portfolio-section-area .portfolio-boxarea a {
   color: var(--ztc-text-text-1);
   font-family: var(--ztc-family-font1);
-  font-size: var(--ztc-font-size-font-s32);
+  font-size: var(--ztc-font-size-font-s24);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
   line-height: 40px; /* 100% */
