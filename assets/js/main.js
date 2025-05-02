@@ -5,11 +5,12 @@ $(document).ready(function(){
   //========== SIDEBAR/SEARCH AREA ============= //
     $(".hamburger_menu").on("click", function (e) {
     e.preventDefault();
-    $(".slide-bar").toggleClass("show");
+    $(".slide-bar").addClass("show");
     $("body").addClass("on-side");
     $('.body-overlay').addClass('active');
     $(this).addClass('active');
     });
+
     $(".close-mobile-menu > a").on("click", function (e) {
     e.preventDefault();
     $(".slide-bar").removeClass("show");
@@ -18,13 +19,31 @@ $(document).ready(function(){
     $('.hamburger_menu').removeClass('active');
     });
 
+    // Prevent body scrolling when menu is open
+    $(".body-overlay").on("click", function (e) {
+        e.preventDefault();
+        $(".slide-bar").removeClass("show");
+        $("body").removeClass("on-side");
+        $(this).removeClass('active');
+        $('.hamburger_menu').removeClass('active');
+    });
 
+    // Add touch support for mobile devices
+    $(".hamburger_menu").on("touchstart", function (e) {
+        e.preventDefault();
+        $(".slide-bar").addClass("show");
+        $("body").addClass("on-side");
+        $('.body-overlay').addClass('active');
+        $(this).addClass('active');
+    });
 
-
-
-
-    
-//========== SIDEBAR/SEARCH AREA ============= //
+    $(".close-mobile-menu > a").on("touchstart", function (e) {
+        e.preventDefault();
+        $(".slide-bar").removeClass("show");
+        $("body").removeClass("on-side");
+        $('.body-overlay').removeClass('active');
+        $('.hamburger_menu').removeClass('active');
+    });
 
 //========== PAGE PROGRESS STARTS ============= // 
   var progressPath = document.querySelector(".progress-wrap path");
