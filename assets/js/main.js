@@ -17,6 +17,53 @@ $(document).ready(function(){
     $('.body-overlay').removeClass('active');
     $('.hamburger_menu').removeClass('active');
     });
+
+
+
+
+
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const submitButton = this.querySelector('button[type="submit"]');
+      
+      // Disable button during submission
+      submitButton.disabled = true;
+      submitButton.innerHTML = 'Sending...';
+      
+      fetch('contact.php', {
+          method: 'POST',
+          body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              alert('Message sent successfully!');
+              this.reset();
+          } else {
+              alert('Error: ' + data.message);
+          }
+      })
+      .catch(error => {
+          alert('An error occurred. Please try again.');
+      })
+      .finally(() => {
+          // Re-enable button
+          submitButton.disabled = false;
+          submitButton.innerHTML = 'Send <img src="assets/img/icons/mail1.svg" alt="">';
+      });
+  });
+
+
+
+
+
+
+
+
+
 //========== SIDEBAR/SEARCH AREA ============= //
 
 //========== PAGE PROGRESS STARTS ============= // 
