@@ -1330,7 +1330,7 @@ Location:
 .main-hero-area {
   position: relative;
   z-index: 1;
-  padding: 160px 0 50px;
+  padding: 97px 0 0px;
   background-image: url(../img/all-images/bg/bg1.png);
   background-position: center;
   background-repeat: no-repeat;
